@@ -1,0 +1,8 @@
+{% extends "home/layout.njk" %}
+{% import "home/parts/functions/chefs.njk" as section %}
+
+{% block content %}
+
+    {{ section.chefs(chefs) }}
+
+{% endblock %}

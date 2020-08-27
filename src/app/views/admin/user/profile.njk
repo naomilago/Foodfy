@@ -1,0 +1,52 @@
+{% extends "admin/layout.njk" %}
+
+{% block content %}
+
+    <section class="index form-edit">
+        <div class="header">
+            <h2>Bem vindo(a), {{ user.name }}.</h2>
+
+            {% if not user.id == req.session.userId %}
+            <span class="delete">
+                <button type="submit" class="delete" form="delete">Deletar</button>
+            </span>
+            {% endif %}
+
+            <span class="submit">
+                <button type="submit" form="submit">Salvar usuário</button>
+            </span>
+        </div>
+
+        <form action="/admin/profile?_method=PUT" method="POST" id="submit">
+            <div class="user">
+                <div class="details">
+                    <input type="hidden" name="id" value="{{ user.id }}">
+
+                    {% include "admin/user/fields.njk" %}
+
+                    <div class="item">
+                        <div>Senha</div>
+                        <div>
+                            <input 
+                                type="password" 
+                                name="password" 
+                                class="form-control" 
+                                placeholder="Digite a senha para atualizar" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    {% if user.is_admin == true %}
+                    <input  type="hidden" name="is_admin" value="1" {% if user.is_admin == true %} checked {% endif %}>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+
+        <form action="/admin/profile?_method=DELETE" method="POST" id="delete">
+            <input type="hidden" name="id" value="{{ user.id }}">
+        </form>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+<header class="home">
+    <div class="container">
+        <a href="/" class="logo">
+            <img src="/assets/black.png">
+        </a>
+
+        <nav class="menu">
+            <a href="/about"><i class="fas fa-bookmark"></i> Sobre</a>
+            <a href="/recipes"><i class="fas fa-pizza-slice"></i> Receitas</a>
+            <a href="/chefs"><i class="fas fa-utensils"></i> Chefs</a>
+            <a href="/admin/"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+        </nav>
+
+        <form action="/recipes" method="GET" class="search">
+            <input type="text" name="filter" placeholder="Buscar receita..." value="{{ filter }}">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+</header>

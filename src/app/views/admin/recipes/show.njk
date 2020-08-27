@@ -1,0 +1,84 @@
+{% extends "admin/layout.njk" %}
+
+{% block content %}
+
+    <section class="index">
+        <div class="header">
+            <h2>Receita: {{ recipe.title }}</h2>
+            
+            {% if session.isAdmin %}
+                <span>
+                    <a href="{{ recipe.id }}/edit" class="button">Editar receita</a>
+                </span>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="header-recipe">
+        <div class="img">
+            <img src="{{ recipe.images[0].src }}">
+        </div>
+
+        <div class="highlights">
+            {% for image in recipe.images %}
+            <img 
+                src="{{ image.src }}" 
+                {% if loop.index0 == 0 %} class="selected" {% endif %} 
+                onclick="Selected.highlightPhoto(event)"
+            >
+            {% endfor %}
+        </div>
+
+        <div class="title">
+            <p>{{ recipe.title }}</p>
+        </div>
+
+        <div class="author">
+            <p>por {{ recipe.author }}</p>
+        </div>
+    </section>
+
+    <section class="body-recipe">
+        <div class="topic">
+            <div class="toggle">
+                <h2>Ingredientes</h2>
+                <span onclick="Toggle.toggleButton(event)">ESCONDER</span>
+            </div>
+
+            <div class="toggle-content">
+                <ul>
+                    {% for ingredient in recipe.ingredients %}
+                    <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="topic">
+            <div class="toggle">
+                <h2>Modo de Preparo</h2>
+                <span onclick="Toggle.toggleButton(event)">ESCONDER</span>
+            </div>
+            
+            <div class="toggle-content">
+                <ul>
+                    {% for preparation in recipe.preparation %}
+                    <li>{{ preparation }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="topic">
+            <div class="toggle">
+                <h2>Informações adicionais</h2>
+                <span onclick="Toggle.toggleButton(event)">ESCONDER</span>
+            </div>
+            
+            <div class="toggle-content">
+                <p>{{ recipe.information }}</p>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

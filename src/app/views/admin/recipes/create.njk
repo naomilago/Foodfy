@@ -1,0 +1,20 @@
+{% extends "admin/layout.njk" %}
+
+{% block content %}
+
+    <section class="index form-edit">
+        <form action="/admin/recipes" method="POST" enctype="multipart/form-data">
+            <div class="header">
+                <h2>Criar Receita</h2>
+                <span>
+                    <button type="submit">Salvar receita</button>
+                </span>
+            </div>
+
+            <div class="details">
+                {% include "admin/recipes/fields.njk" %}
+            </div>
+        </form>
+    </section>
+
+{% endblock %}

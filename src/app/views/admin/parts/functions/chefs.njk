@@ -1,0 +1,41 @@
+{% macro chefs(title, chefs) %}
+
+    <section class="index">
+        {% if title %}
+            <div class="header">
+                <h2>{{ title }}</h2>
+
+                {% if session.isAdmin %}
+                <span>
+                    <a href="/admin/chefs/create" class="button">Novo chef</a>
+                </span>
+                {% endif %}
+            </div>
+        {% endif %}
+    </section>
+
+    <section class="chefs">
+        {% for chef in chefs %}
+            <div class="chef">
+                <a href="/admin/chefs/{{ chef.id }}">
+                    <div class="img">
+                        <img src="{{ chef.img }}">
+                    </div>
+                </a>
+
+                <div class="content">
+                    <div class="title">{{ chef.name }}</div>
+                    <div class="total">
+                        {% if chef.total_recipes == 1 %}
+                        <p>{{ chef.total_recipes }} receita</p>
+                        
+                        {% else %}
+                        <p>{{ chef.total_recipes }} receitas</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div> 
+        {% endfor %}
+    </section>
+
+{% endmacro %}

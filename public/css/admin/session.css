@@ -1,0 +1,45 @@
+.session {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 35px 0px 150px 0px;
+}
+
+.wrapper {
+    width: 500px;
+    margin: 0px auto;
+}
+
+.wrapper h2 {
+    color: #111;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.wrapper .login .footer,
+.wrapper .reset .footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.login .footer {
+    justify-content: space-between;
+}
+
+.login .footer a {
+    color: #777;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 250ms;
+}
+
+.login .footer a:hover {
+    color: #111;
+}
+
+.reset .footer {
+    justify-content: flex-end;
+}

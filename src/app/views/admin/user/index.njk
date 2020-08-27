@@ -1,0 +1,36 @@
+{% extends "admin/layout.njk" %}
+
+{% block content %}
+
+    <section class="index">
+        <div class="header">
+            <h2>Usuários</h2>
+
+            {% if session.isAdmin %}
+                <span>
+                    <a href="/admin/users/create" class="button">Novo</a>
+                </span>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="users">
+        <div class="cards">
+        {% for user in users %}
+            <div class="user">
+                <div class="info">
+                    <p class="title">{{ user.name }}</p>
+                    <p class="author" style="margin-bottom: 20px">{{ user.email }}</p>
+                </div>
+
+                <div>
+                    {% if session.isAdmin %}
+                    <a href="/admin/users/{{ user.id }}/" class="button">Editar</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}

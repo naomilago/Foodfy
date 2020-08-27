@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Painel Administrativo | Foodfy</title>
+
+        <!-- Index CSS -->
+        <link rel="stylesheet" href="/css/admin/index.css">
+        <link rel="stylesheet" href="/css/admin/user.css">
+        
+        {% include "admin/parts/style.njk" %}
+    </head>
+
+    <body>
+        {% include "admin/parts/messages.njk" %}
+        
+        {% include "admin/parts/header.njk" %}
+
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>

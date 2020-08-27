@@ -1,0 +1,134 @@
+/* HEADER */
+.admin {
+    background-color: #111;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.admin .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.admin .menu {
+    display: flex;
+    align-items: center;
+}
+  
+.admin .menu a {
+    color: #fff;
+    font-size: 16px;
+    padding: 0px 15px;
+    transition: all 200ms;
+    display: flex;
+    align-items: center;
+}
+
+a.active,
+.admin .menu a:hover {
+    font-weight: bold;
+}
+  
+.admin .menu a i {
+    color: #f2f2f2;
+    margin-right: 8px;
+}
+
+.admin .logout {
+    background: none;
+    color: #999;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 200ms;
+    cursor: pointer;
+}
+
+.admin .logout:hover {
+    color: #fff;
+}
+
+/* SECTION HEADER */
+.header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 20px;
+}
+  
+.header span {
+    justify-self: end;
+}
+  
+button[type="submit"],
+a.button,
+div.button {
+    background-color: #6558C3;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    padding: 8px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+  
+button.button {
+    background: none;
+    color: #6558C3;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+  
+/* FORM */
+.form-edit .header {
+    margin-bottom: 20px;
+    position: relative;
+}
+  
+.form-edit .header span {
+    display: inline-block;
+}
+  
+.form-edit .header span.delete,
+.form-edit .header span.submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+  
+.form-edit .header span.delete {
+    right: 180px;
+}
+  
+span.delete button[type="submit"] {
+    background-color: #DC4747;
+}
+
+.details .item > div:nth-child(1) {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px -4px rgba(60, 60, 60, .9);
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 16px;
+}
+
+.item .error {
+    background-color: #e74c3c;
+    color: #fff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 18px;
+}

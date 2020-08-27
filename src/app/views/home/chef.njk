@@ -1,0 +1,59 @@
+{% extends "home/layout.njk" %}
+{% import "home/parts/functions/recipes.njk" as section %}
+
+{% block content %}
+
+    <section class="show">
+        <div class="header">
+            <h3>Chef: {{ chef.name }}</h3>
+        </div>
+    </section>
+
+    <section class="chef">
+        <div class="img">
+            <img src="{{ chef.img }}">
+        </div>
+
+        <div class="title">
+            <p>{{ chef.name }}</p>
+        </div>
+
+        <div class="total">
+            <p>
+                {% if chef.total_recipes >= 0 %} {{ chef.total_recipes }} receitas {% endif %}
+                {% if chef.total_recipes == 1 %} {{ chef.total_recipes }} receita {% endif %}
+            </p>
+        </div>
+    </section>
+
+    <section class="recipes">
+        <div class="header">
+            <h2>Receitas</h2>
+        </div>
+
+        <div class="grid">
+            {% for recipe in recipes %}
+                {% if chef.id == recipe.chef_id %}
+                <div class="recipe">
+                    <a href="/recipes/show/{{ recipe.id }}">
+                        <div class="img">
+                            <img src="{{ recipe.src }}">
+                        </div>
+                    </a>
+
+                    <div class="content">
+                        <div class="title">
+                            <p>{{ recipe.title }}</p>
+                        </div>
+                        
+                        <div>
+                            <a href="/recipes/show/{{ recipe.id }}" class="link">Visualizar</a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}

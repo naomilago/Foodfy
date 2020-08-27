@@ -1,0 +1,46 @@
+{% extends "admin/layout.njk" %}
+
+{% block content %}
+
+    <section class="index form-edit">
+        <div class="header">
+            <h2>Editando: {{ user.name }}</h2>
+
+            <span class="delete">
+                <button type="submit" class="delete" form="delete">Deletar</button>
+            </span>
+
+            <span class="submit">
+                <button type="submit" form="submit">Salvar usuário</button>
+            </span>
+        </div>
+
+        <form action="/admin/users?_method=PUT" method="POST" id="submit">
+            <div class="user">
+                <div class="details">
+                    <input type="hidden" name="id" value="{{ user.id }}">
+
+                    {% include "admin/user/fields.njk" %}
+
+                    <div class="item">
+                        <div>
+                            <input 
+                                type="checkbox" 
+                                name="is_admin" 
+                                value="1"
+                                {% if user.is_admin == true %} 
+                                checked 
+                                {% endif %}
+                            >   Administrador
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form action="/admin/users?_method=DELETE" method="POST" id="delete">
+            <input type="hidden" name="id" value="{{ user.id }}">
+        </form>
+    </section>
+
+{% endblock %}

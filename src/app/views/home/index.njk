@@ -1,0 +1,22 @@
+{% extends "home/layout.njk" %}
+{% import "home/parts/functions/recipes.njk" as section %}
+
+{% block content %}
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>As melhores receitas</h1>
+            <p>
+                Aprenda a construir os melhores pratos,
+                com receitas criadas por profissionais do mundo inteiro.
+            </p>
+        </div>
+
+        <div class="hero-img">
+            <img src="/assets/chef.png">
+        </div>
+    </section>
+
+    {{ section.recipes("Mais acessadas", recipes) }}
+
+{% endblock %}

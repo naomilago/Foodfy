@@ -1,0 +1,23 @@
+{% extends "admin/layout.njk" %}
+
+{% block content %}
+
+    <section class="index form-edit">
+        <form action="/admin/users" method="POST">
+            <div class="header">
+                <h2>Criar Usuário</h2>
+                <span>
+                    <button type="submit">Salvar usuário</button>
+                </span>
+            </div>
+
+            <div class="user">
+                <div class="details">
+                    {% include "admin/user/fields.njk" %}
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+{% endblock %}

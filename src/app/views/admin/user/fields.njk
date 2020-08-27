@@ -1,0 +1,21 @@
+<div class="item">
+    <div>Nome</div>
+    <div>
+        <input type="text" name="name" class="form-control" placeholder="John Doe" value="{{ user.name }}" required>
+    </div>
+</div>
+
+<div class="item">
+    <div>E-mail</div>
+    <div>
+        <input 
+            type="email" 
+            name="email" 
+            class="form-control"
+            placeholder="contato@foody.com.br"
+            value="{{ user.email }}" 
+            onblur="Validate.apply(this, 'isEmail')"
+            required
+        >
+    </div>
+</div>
